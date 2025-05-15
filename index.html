@@ -34,40 +34,24 @@
       100% {background-position: 0% 50%;}
     }
     .subject-img {
-      width: 120px;
+      width: 340px;
+      max-width: 98vw;
       height: auto;
-      max-width: 90vw;
       display: block;
-      margin: 0 0 1.2rem 0;
+      margin: 2.2rem auto 1.2rem auto;
       border-radius: 18px;
-      box-shadow: 0 4px 24px 0 rgba(120, 115, 245, 0.18);
-      border: 2px solid #fff;
-      background: #fff;
+      box-shadow: 0 8px 32px 0 rgba(120, 115, 245, 0.18);
+      border: none;
+      background: none;
       transition: transform 0.2s;
     }
     .subject-img:hover {
-      transform: scale(1.04) rotate(-1deg);
-    }
-    h1 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin: 0 0 0.4rem 0;
-      color: #fff;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 12px rgba(120, 115, 245, 0.18);
-    }
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 400;
-      margin: 0 0 1.2rem 0;
-      color: #f3f3f3;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 8px rgba(120, 115, 245, 0.10);
+      transform: scale(1.02) rotate(-1deg);
     }
     @media (max-width: 500px) {
       h1 { font-size: 1.3rem; }
       h2 { font-size: 0.95rem; }
-      .subject-img { width: 48px; height: auto; }
+      .subject-img { width: 98vw; margin: 1.2rem auto 0.8rem auto; }
     }
     #dino {
       position: fixed;
@@ -96,10 +80,13 @@
 </head>
 
 <body>
-  <img class="subject-img" src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="Subject image">
   <h1>michaelmarsden.dev</h1>
+  <img class="subject-img" src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="YS Vince performing live in Southampton">
   <h2>Welcome to the website!</h2>
-  <img id="dino" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Dinosaur_icon.png" alt="Bouncing Dinosaur">
+  <p style="max-width: 500px; color: #fff; text-align: center; font-size: 1.08rem; margin: 0 0 2.2rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
+    YS Vince is a Southampton rapper making waves with his unique sound. He creates music on Spotify using FL Studio and YouTube beats, blending raw energy with authentic storytelling. Check out his latest tracks and follow his journey!
+  </p>
+  <img id="dino" src="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/pets/materialicons/48dp/2x/baseline_pets_black_48dp.png" alt="Bouncing Dinosaur">
   <script>
     // Bouncing dinosaur logic
     const dino = document.getElementById('dino');
