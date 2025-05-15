@@ -76,6 +76,30 @@
       80% { transform: translate(8px, 0); }
       100% { transform: translate(0, 0); }
     }
+    .soton-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    .soton-img {
+      width: 180px;
+      max-width: 44vw;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px 0 rgba(120, 115, 245, 0.13);
+      object-fit: cover;
+      background: #fff;
+      border: none;
+      transition: transform 0.18s;
+    }
+    .soton-img:hover {
+      transform: scale(1.04) rotate(-1deg);
+    }
+    @media (max-width: 600px) {
+      .soton-img { width: 98vw; max-width: 98vw; }
+      .soton-gallery { gap: 0.7rem; }
+    }
   </style>
 </head>
 
@@ -86,7 +110,12 @@
   <p style="max-width: 500px; color: #fff; text-align: center; font-size: 1.08rem; margin: 0 0 2.2rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
     YS Vince is a Southampton rapper making waves with his unique sound. He creates music on Spotify using FL Studio and YouTube beats, blending raw energy with authentic storytelling. Check out his latest tracks and follow his journey!
   </p>
-  <img id="dino" src="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/pets/materialicons/48dp/2x/baseline_pets_black_48dp.png" alt="Bouncing Dinosaur">
+  <div class="soton-gallery">
+    <img class="soton-img" src="https://visit-southampton.transforms.svdcdn.com/production/assets/images/business-directory/blue-inc-hero-2.jpg?w=2937&h=1796&auto=compress%2Cformat&fit=crop&dm=1556209286&s=10df49291cdcb2981e4c6b713dd9e080" alt="Blue shop in Southampton">
+    <img class="soton-img" src="https://i.ytimg.com/vi/DA7ZdQ3oYvw/maxresdefault.jpg" alt="Southampton city skyline">
+    <img class="soton-img" src="https://www.dailyecho.co.uk/resources/images/16299124/?type=responsive-gallery-fullscreen" alt="Southampton Common Park">
+  </div>
+  <img id="dino" src="https://i.postimg.cc/cH015jws/tyrannosaurus-top5-hti-removebg-preview.png" alt="Bouncing Dinosaur">
   <script>
     // Bouncing dinosaur logic
     const dino = document.getElementById('dino');
