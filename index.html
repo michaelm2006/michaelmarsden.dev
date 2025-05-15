@@ -22,23 +22,34 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       font-family: 'Montserrat', Arial, sans-serif;
-      background: linear-gradient(-45deg, #ff6ec4, #7873f5, #42e695, #ffb86c);
+      background: linear-gradient(-45deg, #000, #005a9c, #008000, #fff200, #ff0000);
       background-size: 400% 400%;
       animation: gradientBG 12s ease-in-out infinite;
+      overflow-x: hidden;
     }
     @keyframes gradientBG {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
+    .main-content {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2.2rem 1rem 1.2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
     .subject-img {
-      width: 340px;
-      max-width: 98vw;
+      width: 260px;
+      max-width: 90vw;
+      margin: 1.2rem auto 1rem auto;
       height: auto;
       display: block;
-      margin: 2.2rem auto 1.2rem auto;
       border-radius: 18px;
       box-shadow: 0 8px 32px 0 rgba(120, 115, 245, 0.18);
       border: none;
@@ -48,11 +59,15 @@
     .subject-img:hover {
       transform: scale(1.02) rotate(-1deg);
     }
-    @media (max-width: 500px) {
-      h1 { font-size: 1.3rem; }
-      h2 { font-size: 0.95rem; }
-      .subject-img { width: 98vw; margin: 1.2rem auto 0.8rem auto; }
+    @media (max-width: 600px) {
+      .main-content { padding: 1.2rem 0.2rem 0.7rem 0.2rem; }
+      .subject-img { width: 98vw; }
+      .soton-img { width: 98vw; max-width: 98vw; }
     }
+    h1, h2, h3, p, .soton-gallery, .subject-img, iframe {
+      margin-bottom: 0.7rem;
+    }
+    h1 { margin-top: 0; }
     #dino {
       position: fixed;
       left: 50px;
@@ -86,13 +101,13 @@
     .soton-gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
+      gap: 0.7rem;
       justify-content: center;
-      margin: 2.5rem 0 1.5rem 0;
+      margin: 1.2rem 0 1rem 0;
     }
     .soton-img {
-      width: 180px;
-      max-width: 44vw;
+      width: 110px;
+      max-width: 30vw;
       border-radius: 14px;
       box-shadow: 0 4px 18px 0 rgba(120, 115, 245, 0.13);
       object-fit: cover;
@@ -103,28 +118,29 @@
     .soton-img:hover {
       transform: scale(1.04) rotate(-1deg);
     }
-    @media (max-width: 600px) {
-      .soton-img { width: 98vw; max-width: 98vw; }
-      .soton-gallery { gap: 0.7rem; }
-    }
   </style>
 </head>
 
 <body>
-  <h1>michaelmarsden.dev</h1>
-  <img class="subject-img" src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="YS Vince performing live in Southampton">
-  <h2>Welcome to the website!</h2>
-  <p style="max-width: 500px; color: #fff; text-align: center; font-size: 1.08rem; margin: 0 0 2.2rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
-    YS Vince is a Southampton rapper making waves with his unique sound. He creates music on Spotify using FL Studio and YouTube beats, blending raw energy with authentic storytelling. Check out his latest tracks and follow his journey!
-  </p>
-  <h3 style="color:#fff; text-align:center; margin:2.5rem 0 0.7rem 0; font-size:1.18rem; text-shadow:0 1px 8px rgba(120,115,245,0.13);">Gangs in Southampton</h3>
-  <p style="max-width: 600px; color: #fff; text-align: center; font-size: 1.04rem; margin: 0 0 2.2rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
-    Southampton, like many UK cities, has seen the rise and fall of various street gangs over the years. These groups often form around local neighborhoods and have been involved in territorial disputes, sometimes leading to conflicts known as "postcode wars." While the city has worked hard to reduce violence and promote positive opportunities for young people, the stories of these rivalries remain a part of Southampton's urban history. Today, music and creative expression—like that of YS Vince—offer a powerful alternative to street life, helping to inspire and uplift the next generation.
-  </p>
-  <div class="soton-gallery">
-    <img class="soton-img" src="https://visit-southampton.transforms.svdcdn.com/production/assets/images/business-directory/blue-inc-hero-2.jpg?w=2937&h=1796&auto=compress%2Cformat&fit=crop&dm=1556209286&s=10df49291cdcb2981e4c6b713dd9e080" alt="Blue shop in Southampton">
-    <img class="soton-img" src="https://i.ytimg.com/vi/DA7ZdQ3oYvw/maxresdefault.jpg" alt="Southampton city skyline">
-    <img class="soton-img" src="https://www.dailyecho.co.uk/resources/images/16299124/?type=responsive-gallery-fullscreen" alt="Southampton Common Park">
+  <div class="main-content">
+    <h1>michaelmarsden.dev</h1>
+    <img class="subject-img" src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="YS Vince performing live in Southampton">
+    <h2>Welcome to the website!</h2>
+    <p style="max-width: 500px; color: #fff; text-align: center; font-size: 1.08rem; margin: 0 0 0.7rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
+      YS Vince is a Southampton rapper making waves with his unique sound. He creates music on Spotify using FL Studio and YouTube beats, blending raw energy with authentic storytelling. Check out his latest tracks and follow his journey!
+    </p>
+    <div style="display: flex; justify-content: center; margin-bottom: 0.7rem;">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/3HER62EeqZL8ZP17eOsQ8K?utm_source=generator" width="320" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <h3 style="color:#fff; text-align:center; margin:0.7rem 0 0.7rem 0; font-size:1.18rem; text-shadow:0 1px 8px rgba(120,115,245,0.13);">Gangs in Southampton</h3>
+    <p style="max-width: 600px; color: #fff; text-align: center; font-size: 1.04rem; margin: 0 0 0.7rem 0; text-shadow: 0 1px 8px rgba(120,115,245,0.10);">
+      Southampton, like many UK cities, has seen the rise and fall of various street gangs over the years. These groups often form around local neighborhoods and have been involved in territorial disputes, sometimes leading to conflicts known as "postcode wars." While the city has worked hard to reduce violence and promote positive opportunities for young people, the stories of these rivalries remain a part of Southampton's urban history. Today, music and creative expression—like that of YS Vince—offer a powerful alternative to street life, helping to inspire and uplift the next generation.
+    </p>
+    <div class="soton-gallery">
+      <img class="soton-img" src="https://visit-southampton.transforms.svdcdn.com/production/assets/images/business-directory/blue-inc-hero-2.jpg?w=2937&h=1796&auto=compress%2Cformat&fit=crop&dm=1556209286&s=10df49291cdcb2981e4c6b713dd9e080" alt="Blue shop in Southampton">
+      <img class="soton-img" src="https://i.ytimg.com/vi/DA7ZdQ3oYvw/maxresdefault.jpg" alt="Southampton city skyline">
+      <img class="soton-img" src="https://www.dailyecho.co.uk/resources/images/16299124/?type=responsive-gallery-fullscreen" alt="Southampton Common Park">
+    </div>
   </div>
   <img id="dino" src="https://i.postimg.cc/cH015jws/tyrannosaurus-top5-hti-removebg-preview.png" alt="Bouncing Dinosaur">
   <script>
