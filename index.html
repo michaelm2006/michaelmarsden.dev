@@ -20,6 +20,7 @@
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -32,61 +33,111 @@
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.18);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      padding: 2.5rem 2rem 2rem 2rem;
-      text-align: center;
-      max-width: 350px;
-      width: 90vw;
-      z-index: 1;
+    .subject-img {
+      width: 120px;
+      height: auto;
+      max-width: 90vw;
+      display: block;
+      margin: 0 0 1.2rem 0;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 rgba(120, 115, 245, 0.18);
+      border: 2px solid #fff;
+      background: #fff;
+      transition: transform 0.2s;
+    }
+    .subject-img:hover {
+      transform: scale(1.04) rotate(-1deg);
     }
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      color: #2d2d2d;
+      margin: 0 0 0.4rem 0;
+      color: #fff;
       letter-spacing: 1px;
-      text-shadow: 0 2px 8px rgba(120, 115, 245, 0.12);
+      text-shadow: 0 2px 12px rgba(120, 115, 245, 0.18);
     }
     h2 {
       font-size: 1.1rem;
       font-weight: 400;
-      margin: 0 0 1.5rem 0;
-      color: #444;
+      margin: 0 0 1.2rem 0;
+      color: #f3f3f3;
       letter-spacing: 0.5px;
-    }
-    img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 4px 16px 0 rgba(120, 115, 245, 0.18);
-      border: 3px solid #fff;
-      margin-bottom: 0.5rem;
-      background: #fff;
+      text-shadow: 0 1px 8px rgba(120, 115, 245, 0.10);
     }
     @media (max-width: 500px) {
-      .glass-card {
-        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-        max-width: 98vw;
-      }
       h1 { font-size: 1.3rem; }
       h2 { font-size: 0.95rem; }
-      img { width: 60px; height: 60px; }
+      .subject-img { width: 48px; height: auto; }
+    }
+    #dino {
+      position: fixed;
+      left: 50px;
+      top: 50px;
+      width: 64px;
+      height: 64px;
+      z-index: 10;
+      user-select: none;
+      pointer-events: none;
+      transition: filter 0.2s;
+    }
+    #dino.roar {
+      filter: drop-shadow(0 0 16px #ff6ec4) brightness(1.2);
+      animation: roar-shake 0.3s linear 2;
+    }
+    @keyframes roar-shake {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(-8px, 0); }
+      40% { transform: translate(8px, 0); }
+      60% { transform: translate(-8px, 0); }
+      80% { transform: translate(8px, 0); }
+      100% { transform: translate(0, 0); }
     }
   </style>
 </head>
 
 <body>
-  <div class="glass-card">
-    <img src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="Profile image">
-    <h1>michaelmarsden.dev</h1>
-    <h2>Welcome to the website!</h2>
-  </div>
+  <img class="subject-img" src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="Subject image">
+  <h1>michaelmarsden.dev</h1>
+  <h2>Welcome to the website!</h2>
+  <img id="dino" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Dinosaur_icon.png" alt="Bouncing Dinosaur">
+  <script>
+    // Bouncing dinosaur logic
+    const dino = document.getElementById('dino');
+    let x = 50, y = 50;
+    let dx = 2 + Math.random() * 2;
+    let dy = 2 + Math.random() * 2;
+    let dinoWidth = 64, dinoHeight = 64;
+    let lastRoar = 0;
+    function playRoar() {
+      if (Date.now() - lastRoar < 400) return;
+      lastRoar = Date.now();
+      dino.classList.add('roar');
+      setTimeout(() => dino.classList.remove('roar'), 600);
+      // Roar sound
+      const audio = new Audio('https://cdn.pixabay.com/audio/2022/10/16/audio_12b8b2b6e2.mp3');
+      audio.volume = 0.3;
+      audio.play();
+    }
+    function moveDino() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      x += dx;
+      y += dy;
+      let hit = false;
+      if (x <= 0) { x = 0; dx = Math.abs(dx); hit = true; }
+      if (x + dinoWidth >= w) { x = w - dinoWidth; dx = -Math.abs(dx); hit = true; }
+      if (y <= 0) { y = 0; dy = Math.abs(dy); hit = true; }
+      if (y + dinoHeight >= h) { y = h - dinoHeight; dy = -Math.abs(dy); hit = true; }
+      dino.style.left = x + 'px';
+      dino.style.top = y + 'px';
+      if (hit) playRoar();
+      requestAnimationFrame(moveDino);
+    }
+    window.addEventListener('resize', () => {
+      dinoWidth = dino.offsetWidth;
+      dinoHeight = dino.offsetHeight;
+    });
+    moveDino();
+  </script>
 </body>
 </html>
