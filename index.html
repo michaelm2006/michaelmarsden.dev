@@ -12,11 +12,81 @@
   <meta property="og:type" content="website">
   <meta property="og:description" content="michaelmarsden.dev site">
   <meta property="og:image" content="image.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(-45deg, #ff6ec4, #7873f5, #42e695, #ffb86c);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease-in-out infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      padding: 2.5rem 2rem 2rem 2rem;
+      text-align: center;
+      max-width: 350px;
+      width: 90vw;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: #2d2d2d;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(120, 115, 245, 0.12);
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0 0 1.5rem 0;
+      color: #444;
+      letter-spacing: 0.5px;
+    }
+    img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px 0 rgba(120, 115, 245, 0.18);
+      border: 3px solid #fff;
+      margin-bottom: 0.5rem;
+      background: #fff;
+    }
+    @media (max-width: 500px) {
+      .glass-card {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        max-width: 98vw;
+      }
+      h1 { font-size: 1.3rem; }
+      h2 { font-size: 0.95rem; }
+      img { width: 60px; height: 60px; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="glass-card">
+    <img src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&" alt="Profile image">
     <h1>michaelmarsden.dev</h1>
     <h2>Welcome to the website!</h2>
-    <img src="https://cdn.discordapp.com/attachments/964601701187334205/1372635371862626354/image.png?ex=68277dce&is=68262c4e&hm=79ecdf25f56177466a7bb8b595eed8841e812aee85e24c091826197e89a5a538&"> 
+  </div>
 </body>
 </html>
